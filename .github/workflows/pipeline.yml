@@ -1,0 +1,22 @@
+name: Checkout Repo Example
+
+on:
+  push:
+    branches:
+      - main  # 你可以更改为你想要监听的分支
+  pull_request:
+    branches:
+      - main  # 针对拉取请求进行检出
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest  # 选择运行环境，这里使用 Ubuntu 最新版本
+
+    steps:
+      # 步骤 1: 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v3  # 使用 GitHub 提供的官方 checkout action
+
+      # 步骤 2: 输出当前目录文件列表，以验证代码是否已成功检出
+      - name: List files in the repository
+        run: ls -alh  # 查看仓库中的文件列表
