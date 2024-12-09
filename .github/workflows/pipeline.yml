@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main  # 你可以更改为你想要监听的分支
+      - master
   pull_request:
     branches:
       - main  # 针对拉取请求进行检出
+      - master
 
 jobs:
   checkout:
