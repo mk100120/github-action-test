@@ -12,7 +12,8 @@ on:
 
 jobs:
   checkout:
-    runs-on: ubuntu-latest  # 选择运行环境，这里使用 Ubuntu 最新版本
+    runs-on: self-hosted  # 使用自托管的 runner
+#    runs-on: ubuntu-latest  # 选择运行环境，这里使用 Ubuntu 最新版本
 
     steps:
       # 步骤 1: 检出代码
@@ -22,3 +23,11 @@ jobs:
       # 步骤 2: 输出当前目录文件列表，以验证代码是否已成功检出
       - name: List files in the repository
         run: ls -alh  # 查看仓库中的文件列表
+
+      # 步骤 3: 查看当前目录
+      - name: List files in the repository
+        run: pwd  # 查看当前目录
+
+      # 步骤 3: 检查硬件系统信息
+      - name: List system information
+        run: uname -a  # 检查硬件系统信息
